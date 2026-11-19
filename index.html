@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GenerEat</title>
+  <meta name="description" content="GenerEat keeps all your recipes in one place: save them from any website, write your own, sort them into folders, and let Surprise Me pick what's for dinner.">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <style>
+    :root { --bg: #faf7f2; --text: #2b2620; --muted: #6f665b; --accent: #c2562b; --accent-soft: rgba(194,86,43,.12);
+            --border: #e4dccf; --card: #fffdf9; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1c1916; --text: #efe8de; --muted: #a39887; --accent: #e0774a; --accent-soft: rgba(224,119,74,.15);
+              --border: #3a342e; --card: #24201c; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text);
+           font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    a { color: var(--accent); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* Hero */
+    header { padding: 72px 0 48px; text-align: center; }
+    .icon { width: 112px; height: 112px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+    h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 1.05; margin: 20px 0 8px; letter-spacing: -0.02em; }
+    .tagline { font-size: clamp(1.1rem, 3vw, 1.35rem); color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
+    .cta { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600;
+           padding: 13px 26px; border-radius: 999px; }
+    .cta:hover { filter: brightness(1.08); }
+    .cta-note { display: block; margin-top: 10px; font-size: 14px; color: var(--muted); }
+
+    /* Screenshots */
+    .shots { display: flex; gap: 20px; overflow-x: auto; padding: 8px 20px 24px; scroll-snap-type: x mandatory;
+             justify-content: safe center; }
+    .shot { flex: 0 0 220px; scroll-snap-align: center; margin: 0; text-align: center; }
+    .frame { position: relative; aspect-ratio: 1179 / 2556; border-radius: 28px; overflow: hidden;
+             background: var(--card); border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,.10); }
+    .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .frame .empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+                    justify-content: center; gap: 6px; padding: 16px; color: var(--muted); font-size: 13px;
+                    border: 2px dashed var(--border); border-radius: 28px; }
+    .frame .empty code { font-size: 12px; color: var(--accent); }
+    .shot figcaption { margin-top: 10px; font-size: 15px; color: var(--muted); }
+
+    /* Features */
+    section { padding: 56px 0; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); text-align: center; margin: 0 0 32px; letter-spacing: -0.01em; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; }
+    .feature .emoji { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px;
+                      border-radius: 12px; background: var(--accent-soft); font-size: 22px; }
+    .feature h3 { margin: 12px 0 4px; font-size: 1.1rem; }
+    .feature p { margin: 0; color: var(--muted); font-size: 16px; }
+
+    .ipad { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .ipad .frame { aspect-ratio: 2752 / 2064; border-radius: 22px; }
+    .ipad .frame .empty { border-radius: 22px; }
+    .ipad h2 { text-align: left; margin-bottom: 12px; }
+    .ipad p { color: var(--muted); margin: 0; }
+    @media (max-width: 720px) { .ipad { grid-template-columns: 1fr; } .ipad h2 { text-align: center; } .ipad p { text-align: center; } }
+
+    .privacy { text-align: center; max-width: 620px; margin: 0 auto; }
+    .privacy p { color: var(--muted); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0 48px; text-align: center; font-size: 15px; color: var(--muted); }
+    footer nav { display: flex; gap: 22px; justify-content: center; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+<header class="wrap">
+  <img class="icon" src="icon.png" alt="GenerEat app icon">
+  <h1>GenerEat</h1>
+  <p class="tagline">All your recipes in one place, and an answer to “what should I cook tonight?”</p>
+  <!-- Replace href with your App Store or TestFlight public link when you have it. -->
+  <a class="cta" href="#">Download on the App Store</a>
+  <span class="cta-note">For iPhone and iPad</span>
+</header>
+
+<!-- Screenshots: drop PNGs into the screenshots/ folder with these names. Missing ones show a placeholder. -->
+<div class="shots">
+  <figure class="shot"><div class="frame"><img src="screenshots/library.png" alt="Recipe library with folders and tags"></div>
+    <figcaption>Folders and tags your way</figcaption></figure>
+  <figure class="shot"><div class="frame"><img src="screenshots/import.png" alt="Importing a recipe from a website"></div>
+    <figcaption>Save from any recipe site</figcaption></figure>
+  <figure class="shot"><div class="frame"><img src="screenshots/recipe.png" alt="A recipe with ingredients and steps"></div>
+    <figcaption>Cook with checkable ingredients</figcaption></figure>
+  <figure class="shot"><div class="frame"><img src="screenshots/surprise.png" alt="Surprise Me suggesting a recipe"></div>
+    <figcaption>Let Surprise Me decide</figcaption></figure>
+  <figure class="shot"><div class="frame"><img src="screenshots/share.png" alt="Sharing a recipe"></div>
+    <figcaption>Share with friends</figcaption></figure>
+</div>
+
+<main>
+  <section class="wrap">
+    <h2>Everything a recipe box should do</h2>
+    <div class="features">
+      <div class="feature"><span class="emoji">🌐</span><h3>Save from the web</h3>
+        <p>Paste a link from your favorite recipe site and GenerEat pulls in the ingredients, steps, times and photo. No ads, no life story.</p></div>
+      <div class="feature"><span class="emoji">✍️</span><h3>Write your own</h3>
+        <p>Keep family recipes and your own creations alongside the ones you find online.</p></div>
+      <div class="feature"><span class="emoji">📁</span><h3>Organize your way</h3>
+        <p>Make folders for anything: holidays, meal prep, Grandma's cooking. Add tags like <em>quick</em> or <em>vegetarian</em> to find things fast.</p></div>
+      <div class="feature"><span class="emoji">🎲</span><h3>Surprise Me</h3>
+        <p>Can't decide? Pick a few tags and GenerEat suggests a recipe that fits. Don't like it? Tap again.</p></div>
+      <div class="feature"><span class="emoji">💌</span><h3>Share recipes</h3>
+        <p>Send a recipe or a whole folder to a friend. If they have GenerEat, it opens right in the app.</p></div>
+      <div class="feature"><span class="emoji">🔒</span><h3>Private by design</h3>
+        <p>No account, no ads, no tracking. Your recipes stay on your device.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap ipad">
+    <div class="frame"><img src="screenshots/ipad.png" alt="GenerEat on iPad"></div>
+    <div>
+      <h2>Made for the kitchen counter</h2>
+      <p>On iPad, recipes spread out with the ingredients beside the steps, so you can prop it up and cook without scrolling.</p>
+    </div>
+  </section>
+
+  <section class="wrap privacy">
+    <h2>Your recipes are yours</h2>
+    <p>GenerEat doesn't collect any information about you. There are no servers, no sign-ups and no analytics.
+       Read the <a href="privacy-policy/">privacy policy</a>.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <nav>
+    <a href="support/">Support</a>
+    <a href="privacy-policy/">Privacy Policy</a>
+  </nav>
+  © 2026 GenerEat
+</footer>
+
+<script>
+  // Show a labeled placeholder for any screenshot that hasn't been added yet.
+  document.querySelectorAll('.frame img').forEach(function (img) {
+    function empty() {
+      var name = img.getAttribute('src');
+      img.remove();
+      var d = document.createElement('div');
+      d.className = 'empty';
+      d.innerHTML = 'Screenshot goes here<code></code>';
+      d.querySelector('code').textContent = name;
+      frame.appendChild(d);
+    }
+    var frame = img.parentNode;
+    if (img.complete && img.naturalWidth === 0) empty(); else img.addEventListener('error', empty);
+  });
+</script>
+</body>
+</html>
